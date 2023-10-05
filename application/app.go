@@ -1,4 +1,4 @@
-lpackage application
+package application
 
 import (
 	"context"
@@ -16,9 +16,10 @@ type App struct {
 
 func New() *App {
 	app := &App{
-		router: loadRouter(),
-		rdb:    redis.NewClient(&redis.Options{}),
+		rdb: redis.NewClient(&redis.Options{}),
 	}
+
+	app.loadRouter()
 
 	return app
 }
